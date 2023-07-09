@@ -1,5 +1,4 @@
 const body = document.body;
-const newDiv = document.createElement('div');
 
 let myLibrary = [
     {title: "Harry Potter", author: "Terf", pages: 0, read: false}, {title: "1984", author: "George Orwell", pages: 0, read: true}
@@ -78,9 +77,50 @@ function addBook(){
         authorInput.setAttribute('name','author');
         authorInput.id = 'author';
 
-        // pages
+        // Pages
 
         let pagesLabel = document.createElement('label');
+        pagesLabel.setAttribute('for', 'pages');
+        pagesLabel.textContent = 'Pages';
+        addBookForm.appendChild(pagesLabel);
+
+        let pagesInput = document.createElement('input');
+        addBookForm.appendChild(pagesInput);
+        pagesInput.type = 'number';
+        pagesInput.name = 'pages';
+        pagesInput.id = 'pages';
+        pagesInput.min = 0;
+
+        //Read Status
+        let readDiv = document.createElement('p');
+        addBookForm.appendChild(readDiv);
+        readDiv.textContent = 'Read:';
+
+        //True
+        let readStatusLabelTrue = document.createElement('label');
+        readStatusLabelTrue.htmlFor = 'readStatusTrue';
+        readStatusLabelTrue.textContent ='True';
+        addBookForm.appendChild(readStatusLabelTrue);
+
+        let readStatusInputTrue = document.createElement('input');
+        readStatusInputTrue.type = 'radio';
+        readStatusInputTrue.id = 'readStatusTrue';
+        readStatusInputTrue.name = 'readStatus';
+        addBookForm.appendChild(readStatusInputTrue);
+
+        //False
+        let readStatusLabelFalse = document.createElement('label');
+        readStatusLabelFalse.htmlFor = 'readStatusFalse';
+        readStatusLabelFalse.textContent ='False';
+        addBookForm.appendChild(readStatusLabelFalse);
+
+        let readStatusInputFalse = document.createElement('input');
+        readStatusInputFalse.type = 'radio';
+        readStatusInputFalse.id = 'readStatusFalse';
+        readStatusInputFalse.name = 'readStatus';
+        addBookForm.appendChild(readStatusInputFalse);
+
+
 
     })
 }
