@@ -114,6 +114,7 @@ function addBook(){
         readStatusInputTrue.type = 'radio';
         readStatusInputTrue.id = 'readStatusTrue';
         readStatusInputTrue.name = 'readStatus';
+        readStatusInputTrue.value = 'true';
         addBookForm.appendChild(readStatusInputTrue);
         readStatusInputTrue.required = true;
 
@@ -127,6 +128,7 @@ function addBook(){
         readStatusInputFalse.type = 'radio';
         readStatusInputFalse.id = 'readStatusFalse';
         readStatusInputFalse.name = 'readStatus';
+        readStatusInputFalse.value = 'false';
         addBookForm.appendChild(readStatusInputFalse);
 
         //Submit button
@@ -135,7 +137,20 @@ function addBook(){
         submitButton.form = 'addBookForm';
         submitButton.textContent = 'Submit';
         addBookForm.appendChild(submitButton);
-
+  
+        submitButton.addEventListener('click', function(){
+            let readStatusTrue = document.getElementById('readStatusTrue');
+            let readStatusFalse = document.getElementById('readStatusFalse');
+            if (document.getElementById('title').value === '' ||
+            document.getElementById('author').value === '' ||
+            document.getElementById('pages').value === '' ||
+            !readStatusTrue.checked && !readStatusFalse.checked
+            ) {
+                //do nothing
+            } else {
+                addBookForm.remove();
+            }
+        })
 
     });
 };
