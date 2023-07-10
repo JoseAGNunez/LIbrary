@@ -50,8 +50,13 @@ function addBook(){
         hideLibrary.remove();
         addBookButton.remove();
 
+        //Add Book Form
         let addBookForm = document.createElement('form');
+        addBookForm.id = 'addBookForm';
         body.appendChild(addBookForm);
+        addBookForm.addEventListener('submit',function(event){
+            event.preventDefault();
+        });
 
         //Title
         let titleLabel = document.createElement('label');
@@ -64,6 +69,7 @@ function addBook(){
         titleInput.setAttribute('type','text');
         titleInput.setAttribute('name','title');
         titleInput.id = 'title';
+        titleInput.required = true;
 
         //Author
         let authorLabel = document.createElement('label');
@@ -76,8 +82,9 @@ function addBook(){
         authorInput.setAttribute('type','text');
         authorInput.setAttribute('name','author');
         authorInput.id = 'author';
+        authorInput.required = true;
 
-        // Pages
+        //Pages
 
         let pagesLabel = document.createElement('label');
         pagesLabel.setAttribute('for', 'pages');
@@ -90,13 +97,14 @@ function addBook(){
         pagesInput.name = 'pages';
         pagesInput.id = 'pages';
         pagesInput.min = 0;
+        pagesInput.required = true;
 
-        //Read Status
+        //Read Status Radio--
         let readDiv = document.createElement('p');
         addBookForm.appendChild(readDiv);
         readDiv.textContent = 'Read:';
 
-        //True
+        //True--
         let readStatusLabelTrue = document.createElement('label');
         readStatusLabelTrue.htmlFor = 'readStatusTrue';
         readStatusLabelTrue.textContent ='True';
@@ -107,8 +115,9 @@ function addBook(){
         readStatusInputTrue.id = 'readStatusTrue';
         readStatusInputTrue.name = 'readStatus';
         addBookForm.appendChild(readStatusInputTrue);
+        readStatusInputTrue.required = true;
 
-        //False
+        //False--
         let readStatusLabelFalse = document.createElement('label');
         readStatusLabelFalse.htmlFor = 'readStatusFalse';
         readStatusLabelFalse.textContent ='False';
@@ -120,9 +129,15 @@ function addBook(){
         readStatusInputFalse.name = 'readStatus';
         addBookForm.appendChild(readStatusInputFalse);
 
+        //Submit button
+        let submitButton = document.createElement('button');
+        submitButton.type = 'submit';
+        submitButton.form = 'addBookForm';
+        submitButton.textContent = 'Submit';
+        addBookForm.appendChild(submitButton);
 
 
-    })
-}
+    });
+};
 
 addBook();
