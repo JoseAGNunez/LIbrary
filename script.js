@@ -30,10 +30,18 @@ function displayLibrary(){
         let bookDiv = document.createElement('div');
         bookDiv.id = 'book' + (index);
         myLibraryDiv.appendChild(bookDiv);
+
+        let i = 0;
         for (let key in book){
+            if (i >= 4) {
+                break;
+            }
+
             let bookInfoDiv = document.createElement('div');
             bookDiv.appendChild(bookInfoDiv);
             bookInfoDiv.textContent = `${key}: ${book[key]}`;
+
+            i++
         }
     })
 };
@@ -162,6 +170,10 @@ function addBook(){
                 document.getElementById('pages').value,
                 readStatus);
                 myLibrary.push(book);
+
+                addBookForm.remove();
+                displayLibrary();
+                addBook();
             }
         })
 
