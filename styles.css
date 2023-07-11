@@ -48,3 +48,26 @@ table {
 }
 
 /* ________________________________________________ */
+
+body > #myLibraryDiv {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: auto;
+}
+
+body #myLibraryDiv > div {
+	margin: 2rem;
+	border: .1rem black solid;
+	padding: 2rem;
+}
+
+body #myLibraryDiv > div #addBookButton {
+	width: 100%;
+	height: 100%;
+}
+
+body > form {
+	margin: 2rem;
+	padding: 2rem;
+	border: .1rem black solid;
+}

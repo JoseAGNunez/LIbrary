@@ -66,7 +66,10 @@ displayLibrary();
 function addBook(){
     let hideLibrary = document.getElementById('myLibraryDiv');
     let addBookButton = document.createElement('button');
-    body.appendChild(addBookButton);
+    let myLibraryDiv = document.getElementById('myLibraryDiv');
+    let myLibraryButtonDiv = document.createElement('div');
+    myLibraryDiv.appendChild(myLibraryButtonDiv).appendChild(addBookButton);
+    addBookButton.id = 'addBookButton';
     addBookButton.textContent = 'Add Book';
     addBookButton.addEventListener('click', function(){
 
