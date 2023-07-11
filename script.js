@@ -137,10 +137,12 @@ function addBook(){
         submitButton.form = 'addBookForm';
         submitButton.textContent = 'Submit';
         addBookForm.appendChild(submitButton);
-  
+
+        // create new book object and push to myLibrary array
         submitButton.addEventListener('click', function(){
             let readStatusTrue = document.getElementById('readStatusTrue');
             let readStatusFalse = document.getElementById('readStatusFalse');
+            let readStatus;
             if (document.getElementById('title').value === '' ||
             document.getElementById('author').value === '' ||
             document.getElementById('pages').value === '' ||
@@ -148,7 +150,18 @@ function addBook(){
             ) {
                 //do nothing
             } else {
-                addBookForm.remove();
+
+                if ( readStatusTrue.checked) {
+                    readStatus = true;
+                } else {
+                    readStatus = false;
+                }
+                
+                let book = new Book(document.getElementById('author').value,
+                document.getElementById('author').value,
+                document.getElementById('pages').value,
+                readStatus);
+                myLibrary.push(book);
             }
         })
 
