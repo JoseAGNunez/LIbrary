@@ -156,8 +156,8 @@ function addBook(){
                 } else {
                     readStatus = false;
                 }
-                
-                let book = new Book(document.getElementById('author').value,
+
+                let book = new Book(document.getElementById('title').value,
                 document.getElementById('author').value,
                 document.getElementById('pages').value,
                 readStatus);
