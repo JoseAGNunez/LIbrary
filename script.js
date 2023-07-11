@@ -33,7 +33,22 @@ function displayLibrary(){
 
         let i = 0;
         for (let key in book){
-            if (i >= 4) {
+            if (i === 4) {
+                // add remove button to each book object
+                let bookInfoDiv = document.createElement('div');
+                bookDiv.appendChild(bookInfoDiv);
+                bookInfoDiv.textContent = 'remove:';
+
+                let removeButton = document.createElement('button');
+                bookDiv.appendChild(removeButton);
+                removeButton.textContent = 'Remove Book';
+                removeButton.addEventListener('click', function(){
+                    myLibrary.splice(index, 1);
+                    body.innerHTML = '';
+                    displayLibrary();
+                    addBook();
+                })
+
                 break;
             }
 
