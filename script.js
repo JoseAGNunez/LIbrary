@@ -165,7 +165,8 @@ function addBook(){
         addBookForm.appendChild(submitButton);
 
         // create new book object and push to myLibrary array
-        submitButton.addEventListener('click', function(){
+        submitButton.addEventListener('click', function(event){
+            event.preventDefault();
             let readStatusTrue = document.getElementById('readStatusTrue');
             let readStatusFalse = document.getElementById('readStatusFalse');
             let readStatus;
