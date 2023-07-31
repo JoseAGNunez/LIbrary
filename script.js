@@ -28,9 +28,13 @@ class Book {
         this.author = author;
         this.pages = pages;
         this.read = read;
-        this.info = function(){
-            return `${title} by ${author}, ${pages} pages, read: ${read}`;
-        }
+        // this.info = function(){
+        //     return `${title} by ${author}, ${pages} pages, read: ${read}`;
+        // }
+    }
+
+    info() {
+        return `${this.title} by ${this.author}, ${this.pages} pages, read: ${this.read}`;
     }
 
     readStatus() {
